@@ -1,3 +1,4 @@
+
 #' Define image size variables from the given bounding box coordinates.
 #' https://github.com/wcmbishop/rayshader-demo/blob/master/R/image-size.R
 #'
@@ -14,6 +15,7 @@
 #' )
 #' image_size <- define_image_size(bbox, 600)
 #' 
+
 define_image_size <- function(bbox, major_dim = 400) {
   # calculate aspect ration (width/height) from lat/long bounding box
   aspect_ratio <- abs((bbox$p1$long - bbox$p2$long) / (bbox$p1$lat - bbox$p2$lat))
