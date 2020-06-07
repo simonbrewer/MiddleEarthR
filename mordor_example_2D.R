@@ -32,7 +32,7 @@ mordor_mat %>%
 
 #And we can add a raytraced layer from that sun direction as well:
 mordor_mat %>%
-  sphere_shade(texture = "desert") %>%
+  sphere_shade(texture = "imhof2") %>%
   add_water(detect_water(mordor_mat, max_height = 17), color = "desert") %>%
   add_shadow(ray_shade(mordor_mat), 0.5) %>%
   plot_map()
