@@ -1,5 +1,5 @@
 ## Make basic 2D hillshading image
-## Code modified from rayshaer tutorial
+## Code modified from rayshader tutorial
 
 library(rayshader)
 library(raster)
