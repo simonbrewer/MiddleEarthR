@@ -1,4 +1,4 @@
-# me_ray
+# MiddleEarthR
 Rayshading Middle Earth DEM
 
 Uses the **rayshader** library to make plots of Middle Earth topography. Data taken from 
