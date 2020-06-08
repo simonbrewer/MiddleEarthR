@@ -42,6 +42,14 @@ elev_mat %>%
           theta = 25, phi = 30, zoom = 0.65, fov = 60)
 
 ## Set camera position
-render_camera(fov = 70, zoom = 0.4, theta = 25, phi = 35)
+render_camera(fov = 70, zoom = 0.4, theta = 25, phi = 5)
 
 render_snapshot()
+
+## Set camera position
+stop()
+render_camera(fov = 20, zoom = 0.15, theta = 235, phi = 10)
+
+render_depth(focus = 0.5, focallength = 35, clear = FALSE)
+
+render_depth(focus = 0.37, focallength = 35, clear = FALSE, filename = "mtdoom")
