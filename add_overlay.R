@@ -7,9 +7,11 @@ mext = extent(c(1120000, 1600000, 400000, 750000))
 
 load("region.RData")
 
+zscale = 150
+
 # calculate rayshader layers
-ambmat <- ambient_shade(elev_mat, zscale = 30)
-raymat <- ray_shade(elev_mat, zscale = 30, lambert = TRUE)
+ambmat <- ambient_shade(elev_mat, zscale = zscale)
+raymat <- ray_shade(elev_mat, zscale = zscale, lambert = TRUE)
 watermap <- detect_water(elev_mat, max_height = 17)
 
 # plot 2D
@@ -29,7 +31,6 @@ elev_mat %>%
   add_overlay(overlay_arr, alphalayer = 0.5) %>%
   plot_map()
 
-zscale <- 10
 rgl::clear3d()
 elev_mat %>% 
   sphere_shade(texture = "imhof4") %>% 
