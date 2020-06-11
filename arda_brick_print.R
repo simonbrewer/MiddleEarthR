@@ -1,3 +1,5 @@
+## Make file for 3D printing
+
 library(ggplot2)
 library(raster)
 library(rgdal)
@@ -71,18 +73,6 @@ rgl::clear3d()
 plot_gg(g1, width = 5, height = 4, scale = 50, multicore = FALSE, windowsize = c(1200, 960),
         fov = 70, zoom = 0.4, theta = 330, phi = 40)
 
-## Mordor focus
-render_camera(fov = 40, zoom = 0.25, theta = 35, phi = 30)
-render_depth(focus = 0.56, focallength = 200, filename = "mordor_brick")
+save_3dprint("arda_brick.stl", maxwidth = 150, unit = "mm")
 
-## Shire focus
-render_camera(fov = 40, zoom = 0.15, theta = 245, phi = 15)
-render_depth(focus = 0.55, focallength = 160, filename = "shire_brick")
-
-## Render to mp4 at set height
-render_camera(fov = 40, zoom = 0.35, theta = 0, phi = 45)
-render_movie(filename = "arda_plot_orbit", type = "orbit",
-             phi = 45, theta = 0)
-
-# rgl::clear3d()
 
