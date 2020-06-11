@@ -27,17 +27,21 @@ plot(mordor)
 #And convert it to a matrix:
 mordor_mat = raster_to_matrix(mordor)
 
+# calculate rayshader layers
+ambmat <- ambient_shade(mordor_mat, zscale = 30)
+raymat <- ray_shade(mordor_mat, zscale = 30, lambert = TRUE)
+watermap <- detect_water(mordor_mat, max_height = 0)
+
 ## 3D render (note the use of theta and phi to control angle and height)
 ## This opens an RGL-type window for zooming and panning
 rgl::clear3d()
-
 mordor_mat %>% 
   sphere_shade(texture = "imhof4") %>% 
   # add_water(watermap, color = "imhof4") %>%
-  add_overlay(overlay_arr, alphalayer = 0.25) %>%
+  # add_overlay(overlay_arr, alphalayer = 0.25) %>%
   add_shadow(raymat, max_darken = 0.5) %>%
   add_shadow(ambmat, max_darken = 0.5) %>%
-  plot_3d(elev_mat, zscale = zscale, windowsize = c(1200, 1000),
+  plot_3d(mordor_mat, zscale = 150, windowsize = c(1200, 1000),
           # water = TRUE, soliddepth = -max(elev_mat)/zscale, wateralpha = 0,
           theta = 25, phi = 30, zoom = 0.65, fov = 60)
 
